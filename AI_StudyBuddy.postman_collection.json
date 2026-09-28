@@ -1,0 +1,278 @@
+{
+  "info": {
+    "name": "AI StudyBuddy API",
+    "description": "Complete Postman collection for AI StudyBuddy full-stack college project.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/health"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/register",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Student Demo\",\n  \"email\": \"student@college.edu\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/auth/login",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"student@college.edu\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/auth/me",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "item": [
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/profile",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+          }
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/profile",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"education_level\": \"Undergraduate\",\n  \"daily_study_hours\": 3.5,\n  \"learning_preference\": \"Visual\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Subjects",
+      "item": [
+        {
+          "name": "List Subjects",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subjects",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+          }
+        },
+        {
+          "name": "Create Subject",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subjects",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Operating Systems\",\n  \"description\": \"Processes, Memory, I/O\",\n  \"difficulty\": \"hard\",\n  \"exam_date\": \"2026-11-20\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Topics",
+      "item": [
+        {
+          "name": "List Topics for Subject",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subjects/1/topics",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+          }
+        },
+        {
+          "name": "Create Topic",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subjects/1/topics",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Virtual Memory Paging\",\n  \"difficulty\": \"hard\",\n  \"status\": \"not_started\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Study Plans",
+      "item": [
+        {
+          "name": "Generate AI Study Plan",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/study-plans/generate",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject_id\": 1,\n  \"start_date\": \"2026-10-01\",\n  \"end_date\": \"2026-10-07\",\n  \"focus_areas\": [\"Paging Algorithms\", \"Deadlocks\"]\n}"
+            }
+          }
+        },
+        {
+          "name": "List Study Plans",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/study-plans",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+          }
+        }
+      ]
+    },
+    {
+      "name": "AI Assistant & Summarizer",
+      "item": [
+        {
+          "name": "Summarize Content",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/summarize",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"Virtual memory is a memory management capability of an operating system that uses hardware and software to allow a computer to compensate for physical memory shortages by temporarily transferring data from random access memory to disk storage.\",\n  \"focus\": \"Exam definitions\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Ask Question",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ai/ask",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"question\": \"Explain the difference between paging and segmentation.\",\n  \"context\": \"Undergraduate OS\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Quizzes",
+      "item": [
+        {
+          "name": "Generate AI Quiz",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/quizzes/generate",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject_id\": 1,\n  \"topic\": \"Paging\",\n  \"difficulty\": \"medium\",\n  \"number_of_questions\": 3\n}"
+            }
+          }
+        },
+        {
+          "name": "Submit Quiz for Deterministic Grading",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/quizzes/1/submit",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"answers\": {\n    \"0\": \"A\",\n    \"1\": \"B\",\n    \"2\": \"C\"\n  }\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Progress & Dashboard",
+      "item": [
+        {
+          "name": "Update Topic Progress",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/progress",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject_id\": 1,\n  \"topic_id\": 1,\n  \"completion_percentage\": 100,\n  \"study_minutes\": 60\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Dashboard Overview",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dashboard",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+          }
+        }
+      ]
+    }
+  ]
+}
