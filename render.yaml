@@ -9,7 +9,7 @@ services:
       - key: PYTHON_VERSION
         value: 3.12.0
       - key: GEMINI_MODEL
-        value: gemini-3.8-flash
+        value: gemini-3.5-flash-lite
       - key: DATABASE_URL
         value: sqlite:///./studybuddy.db
       - key: SECRET_KEY
