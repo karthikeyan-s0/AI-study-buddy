@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     
     # Gemini AI
     GEMINI_API_KEY: str = ""
-    GEMINI_MODEL: str = "gemini-3.8-flash"
+    GEMINI_MODEL: str = "gemini-3.5-flash-lite"
     
     @property
     def jwt_secret(self) -> str:
