@@ -1,8 +1,17 @@
-# AI StudyBuddy — Comprehensive Final Project Report
+# AI StudyBuddy — Comprehensive Project Documentation & Final Report
+
+**Program**: TN Skill Final Project  
 **Track**: AI-Augmented Backend Development  
+**Team**: Team 11  
 **Project Domain**: Educational Technology (EdTech) / Artificial Intelligence  
 **System Name**: AI StudyBuddy Full-Stack Academic Companion  
 **Technology Stack**: Python, FastAPI, SQLAlchemy, SQLite/PostgreSQL, Google Gemini 3.8 Flash, React 19, Vite, Tailwind CSS, Docker, Pytest  
+
+### Project Team Members:
+1. **Alan K Rison** — *Team Leader*
+2. **Karthikeyan** — *Team Member / Developer*
+3. **Mathew** — *Team Member / Developer*
+4. **Kishore** — *Team Member / Developer*
 
 ---
 

@@ -8,8 +8,13 @@
 [![Gemini](https://img.shields.io/badge/AI-Gemini%203.8%20Flash-orange.svg)](https://ai.google.dev/)
 [![Tests Passing](https://img.shields.io/badge/Pytest-109%20Passed-brightgreen.svg)]()
 
-> **Technology Track**: AI-Augmented Backend Development  
-> **Course / Program**: College Final Capstone Project  
+> **Program**: TN Skill Final Project — Team 11  
+> **Track**: AI-Augmented Backend Development  
+> **Team Members**:  
+> - **Alan K Rison** (*Team Leader*)  
+> - **Karthikeyan**  
+> - **Mathew**  
+> - **Kishore**  
 > **System Name**: AI StudyBuddy API & Full-Stack Platform
 
 ---
